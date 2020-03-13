@@ -48,7 +48,7 @@ if [[ -d \\\$file_path ]]; then
 else
     code_flag="--file-uri"
 fi
-ssh -i "\$TEMP_DIR/ssh_key" -o GlobalKnownHostsFile="\$TEMP_DIR/ssh_known_host" -p ${random_port} localhost \\\\
+ssh -i "\$TEMP_DIR/ssh_key" -o GlobalKnownHostsFile="\$TEMP_DIR/ssh_known_host" -p ${random_port} "${USER}"@localhost \\\\
     "$(which code)" \\\$code_flag "vscode-remote://ssh-remote%2B${ssh_destination}\\\${file_path}"
 
 CODE_SCRIPT_EOM
